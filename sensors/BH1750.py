@@ -41,7 +41,7 @@ class BH1750:
         :return: float lux
         """
         try:
-            data = self.bus.read_i2c_block_data(self.device, self.ONE_TIME_HIGH_RES_MODE)
+            data = self.bus.read_i2c_block_data(self.device, self.ONE_TIME_HIGH_RES_MODE, 2)
             return self._data_to_lux(data)
         except OSError as e:
             print(f"Error reading BH1750 sensor: {e}")
