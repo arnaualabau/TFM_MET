@@ -7,7 +7,7 @@
 
 from time import sleep
 from sensors import BH1750, BMP280
-from cloud import IoTClient, TOPICS
+from cloud_client import IoTClient, TOPICS
 
 # Sensors init
 bh1750_lux_sensor = BH1750(device=0x23)

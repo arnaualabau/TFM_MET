@@ -14,7 +14,7 @@ MQTT_PORT = 8883
 
 # Certificate Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CERT_PATH = os.path.join(BASE_DIR, "cloud", "certs")
+CERT_PATH = os.path.join(BASE_DIR, "cloud_client", "certs")
 
 ROOT_CA = os.path.join(CERT_PATH, "root-CA.pem")
 DEVICE_CERT = os.path.join(CERT_PATH, "device.pem.crt")
