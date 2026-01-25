@@ -10,7 +10,7 @@ import json
 import time
 import paho.mqtt.client as mqtt
 
-from cloud_client import AWS_IOT_ENDPOINT, THING_NAME, ROOT_CA, DEVICE_CERT, PRIVATE_KEY, MQTT_PORT
+from .config import AWS_IOT_ENDPOINT, THING_NAME, ROOT_CA, DEVICE_CERT, PRIVATE_KEY, MQTT_PORT
 
 
 class IoTClient:
