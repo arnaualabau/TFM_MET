@@ -5,7 +5,7 @@
 # Date   : 01/01/2026
 # --------------------------------------
 
-import smbus
+import smbus2 as smbus
 import time
 
 class BH1750:
