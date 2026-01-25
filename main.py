@@ -20,7 +20,7 @@ iot.connect()
 try:
     while True:
 
-        lux = lux_sensor.read_light()
+        lux = bh1750_lux_sensor.read_light()
 
         if lux is not None:
             payload = {
