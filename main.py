@@ -6,31 +6,46 @@
 # --------------------------------------
 
 from time import sleep
+from datetime import datetime, timezone
+
 from sensors import BH1750, BMP280
 from cloud_client import IoTClient, TOPICS
 
-# Sensors init
+# -------------------------
+# Sensors initialization
+# -------------------------
 bh1750_lux_sensor = BH1750(device=0x23)
 
-# IoT client init
+# -------------------------
+# IoT client initialization
+# -------------------------
 iot =  IoTClient()
 iot.connect()
 
-# Main Loop
+# -------------------------
+# Main loop
+# -------------------------
 try:
     while True:
-
         lux = bh1750_lux_sensor.read_light()
 
         if lux is not None:
             payload = {
-                "sensor": "BH1750",
-                "lux": round(lux, 2)
+                "device_id": THING_NAME,
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "measurements": {
+                    "light": {
+                        "sensor_id": "bh1750_1",
+                        "lux": round(lux, 2),
+                        "unit": "lux"
+                    }
+                }
             }
+
             iot.publish(TOPICS["light"], payload)
-            print(f"Published: {payload}")
-            
-        sleep(5)  # esperar 5 segundos entre mediciones
+            print(f"Published payload:\n{payload}")
+
+        sleep(5)
 except KeyboardInterrupt:
     print("\nExiting gracefully...")
     iot.disconnect()
