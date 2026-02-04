@@ -9,7 +9,7 @@ from time import sleep
 from datetime import datetime, timezone
 
 from sensors import BH1750, BMP280
-from cloud_client import IoTClient, TOPICS
+from cloud_client import IoTClient, TOPICS, THING_NAME
 
 # -------------------------
 # Sensors initialization
@@ -42,7 +42,7 @@ try:
                 }
             }
 
-            iot.publish(TOPICS["light"], payload)
+            iot.publish(TOPICS["data"], payload)
             print(f"Published payload:\n{payload}")
 
         sleep(5)

@@ -22,8 +22,5 @@ PRIVATE_KEY = os.path.join(CERT_PATH, "private.pem.key")
 
 # Topics MQTT
 TOPICS = {
-    "light": "sensors/light/1",
-    "temp": "sensors/temp/1",
-    "hum": "sensors/hum/1",
-    "motion": "sensors/mov/1"
+    "data": f"sensors/{THING_NAME}/data"
 }
