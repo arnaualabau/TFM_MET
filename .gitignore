@@ -1,1 +1,5 @@
+venv/
+__pycache__/
+*.pyc
 cloud_client/certs/
+.env
